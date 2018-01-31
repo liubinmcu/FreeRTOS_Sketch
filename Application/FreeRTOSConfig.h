@@ -86,10 +86,12 @@
 /* Ensure stdint is only used by the compiler, and not the assembler. */
 #ifdef __ICCARM__
 	#include <stdint.h>
+	#include <stdio.h>      //防止增加断言printf函数后出现的警告
 	extern uint32_t SystemCoreClock;
 #endif
 
 #define configUSE_PREEMPTION			1
+#define configUSE_QUEUE_SETS			1                       //为1时启用队列
 #define configUSE_IDLE_HOOK				0
 #define configUSE_TICK_HOOK				0
 #define configCPU_CLOCK_HZ				( SystemCoreClock )
@@ -109,6 +111,7 @@
 #define configUSE_APPLICATION_TASK_TAG	0
 #define configUSE_COUNTING_SEMAPHORES	1
 #define configGENERATE_RUN_TIME_STATS	0
+#define configUSE_STATS_FORMATTING_FUNCTIONS	0
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 		0
@@ -116,7 +119,9 @@
 
 /* Software timer definitions. */
 #define configUSE_TIMERS				1
-#define configTIMER_TASK_PRIORITY		( 2 )
+//#define configTIMER_TASK_PRIORITY		( 2 )
+#define configTIMER_TASK_PRIORITY		( configMAX_PRIORITIES - 1 )
+
 #define configTIMER_QUEUE_LENGTH		10
 #define configTIMER_TASK_STACK_DEPTH	( configMINIMAL_STACK_SIZE * 2 )
 
@@ -157,7 +162,10 @@ See http://www.FreeRTOS.org/RTOS-Cortex-M3-M4.html. */
 	
 /* Normal assert() semantics without relying on the provision of an assert.h
 header file. */
-#define configASSERT( x ) if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ); }	
+//#define configASSERT( x ) if( ( x ) == 0 ) { taskDISABLE_INTERRUPTS(); for( ;; ); }	
+#define vAssertCalled( char, int ) printf("Error:%s,%d\r\n", char, int)
+#define configASSERT( x ) if( ( x ) == 0 ) vAssertCalled(__FILE__,__LINE__)
+
 	
 /* Definitions that map the FreeRTOS port interrupt handlers to their CMSIS
 standard names. */

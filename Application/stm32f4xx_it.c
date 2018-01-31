@@ -144,6 +144,12 @@ __weak void SysTick_Handler(void)
  
 }
 
+__weak void TIM1_BRK_TIM9_IRQHandler(void)
+{
+
+}
+
+
 /******************************************************************************/
 /*                 STM32F4xx Peripherals Interrupt Handlers                   */
 /*  Add here the Interrupt Handler for the used peripheral(s) (PPP), for the  */

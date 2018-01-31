@@ -1,6 +1,7 @@
 #include "bsp_hardware.h"
 #include "bsp_drv_led.h"
 #include "bsp_drv_motors.h"
+#include "bsp_drv_timer.h"
 #include "global_include.h"
 
 
@@ -15,4 +16,7 @@ void bsp_hardware_init(void)
 //    delay_init(96);     /*delay≥ı ºªØ*/
 //    bsp_drv_led_init();
 //    bsp_drv_motors_init();
+//    (5000,16800-1)
+    bsp_drv_timer9_init(5000, 16800-1);
+
 }
