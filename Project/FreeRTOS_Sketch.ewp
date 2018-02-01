@@ -1929,7 +1929,16 @@
   <group>
     <name>Application</name>
     <file>
+      <name>$PROJ_DIR$\..\Application\app_task_create.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Application\app_task_main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_task_queue.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_task_semphr.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Application\FreeRTOSConfig.h</name>
@@ -1957,30 +1966,6 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\Driver\bsp_hardware.c</name>
-    </file>
-  </group>
-  <group>
-    <name>FWLib</name>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\misc.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_dma.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_exti.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_gpio.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_rcc.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_tim.c</name>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_usart.c</name>
     </file>
   </group>
   <group>
@@ -2018,6 +2003,30 @@
         <name>$PROJ_DIR$\..\FreeRTOS\portable\IAR\ARM_CM4F\portasm.s</name>
       </file>
     </group>
+  </group>
+  <group>
+    <name>FWLib</name>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\misc.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_dma.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_exti.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_gpio.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_rcc.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_tim.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\FWLib\src\stm32f4xx_usart.c</name>
+    </file>
   </group>
 </project>
 

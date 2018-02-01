@@ -13,10 +13,9 @@ void bsp_hardware_init(void)
     /* Ensure all priority bits are assigned as preemption priority bits. */
     NVIC_PriorityGroupConfig( NVIC_PriorityGroup_4 );
 
-//    delay_init(96);     /*delay初始化*/
+//    delay_init(168);     /*delay初始化*/
 //    bsp_drv_led_init();
 //    bsp_drv_motors_init();
-//    (5000,16800-1)
-    bsp_drv_timer9_init(5000, 16800-1);
+//    bsp_drv_timer9_init(5000, 16800-1);
 
 }

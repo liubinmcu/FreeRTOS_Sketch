@@ -26,28 +26,24 @@ void bsp_drv_timer9_init(uint16_t arr, uint16_t psc)
 
 }
 
-extern QueueHandle_t xHandleQueueMsg;
-
-uint8_t buffer[10] = {0};
 
 void TIM1_BRK_TIM9_IRQHandler(void)
 {
     BaseType_t err = pdFALSE;
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;
+    uint8_t receive_buffer[10] = {0};
 	if(TIM_GetITStatus(TIM9,TIM_IT_Update)==SET) //溢出中断
 	{
         TIM_ClearITPendingBit(TIM9,TIM_IT_Update);  //清除中断标志位
         if(xHandleQueueMsg != NULL)
         {
-            err = xQueueReceiveFromISR(xHandleQueueMsg, buffer, &xHigherPriorityTaskWoken);
+            err = xQueueReceiveFromISR(xHandleQueueMsg, receive_buffer, &xHigherPriorityTaskWoken);
             if(err == pdTRUE)
             {
-                printf("%s\r\n", buffer);
+                printf("receive data from IRQ: %s\r\n", receive_buffer);
             }
             portYIELD_FROM_ISR(xHigherPriorityTaskWoken);
         }
-        
-//        printf("TIM1_BRK_TIM9_IRQHandler running\r\n");
 	}
 	
 

@@ -9,5 +9,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 #include "queue.h"
+#include "semphr.h"
+
+//自定义任务
+#include "app_task_queue.h"
 
 
