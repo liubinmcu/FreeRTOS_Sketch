@@ -2,25 +2,39 @@
 #include "app_task_queue.h"
 #include "app_task_create.h"
 #include "app_task_semphr.h"
+#include "app_task_statistics.h"
+#include "app_task_softwaretimer.h"
+#include "app_task_eventgroup.h"
 #include "global_include.h"
 
 
-#define TASK_START_STK_SIZE         128
-#define TASK_QUEUE_START_STK_SIZE   128
-#define TASK_CREATE_START_STK_SIZE  128
-#define TASK_SEMPHR_START_STK_SIZE  128
-
-#define TASK_START_PRIO         1
-#define TASK_QUEUE_START_PRIO   2
-#define TASK_CREATE_START_PRIO  3
-#define TASK_SEMPHR_START_PRIO  4
+#define TASK_START_STK_SIZE                 128
+#define TASK_QUEUE_START_STK_SIZE           128
+#define TASK_CREATE_START_STK_SIZE          128
+#define TASK_SEMPHR_START_STK_SIZE          128
+#define TASK_STATISTICS_START_STK_SIZE      128
+#define TASK_SOFTWARETIMER_START_STK_SIZE   128
+#define TASK_EVENTGROUP_START_STK_SIZE      128
 
 
+#define TASK_START_PRIO                 1
+#define TASK_QUEUE_START_PRIO           2
+#define TASK_CREATE_START_PRIO          3
+#define TASK_SEMPHR_START_PRIO          4
+#define TASK_STATISTICS_START_PRIO      5
+#define TASK_SOFTWARETIMER_START_PRIO   6
+#define TASK_EVENTGROUP_START_PRIO      7
 
-TaskHandle_t xHandleTaskStart       = NULL;
-TaskHandle_t xHandleTaskQueueStart  = NULL;
-TaskHandle_t xHandleTaskCreateStart = NULL;
-TaskHandle_t xHandletaskSemphrStart = NULL;
+
+
+TaskHandle_t xHandleTaskStart               = NULL;
+TaskHandle_t xHandleTaskQueueStart          = NULL;
+TaskHandle_t xHandleTaskCreateStart         = NULL;
+TaskHandle_t xHandletaskSemphrStart         = NULL;
+TaskHandle_t xHandletaskStatisticsStart     = NULL;
+TaskHandle_t xHandletaskSoftwareTimerStart  = NULL;
+TaskHandle_t xHandletaskEventGroupStart     = NULL;
+
 
 
 static void vTaskStart( void* pvParameters );
@@ -49,12 +63,30 @@ static void vTaskStart( void* pvParameters )
 //                 NULL,
 //                 TASK_CREATE_START_PRIO,
 //                 &xHandleTaskCreateStart);
-    xTaskCreate( vTaskSemphrStart,
-                 "vTaskSemphrStart",
-                 TASK_SEMPHR_START_STK_SIZE,
+//    xTaskCreate( vTaskSemphrStart,
+//                 "vTaskSemphrStart",
+//                 TASK_SEMPHR_START_STK_SIZE,
+//                 NULL,
+//                 TASK_SEMPHR_START_PRIO,
+//                 &xHandletaskSemphrStart);
+//    xTaskCreate( vTaskStatisticsStart,
+//                 "vTaskStatisticsStart",
+//                 TASK_STATISTICS_START_STK_SIZE,
+//                 NULL,
+//                 TASK_STATISTICS_START_PRIO,
+//                 &xHandletaskStatisticsStart);
+//    xTaskCreate( vTaskSoftwareTimerStart,
+//                 "vTaskSoftwareTimerStart",
+//                 TASK_SOFTWARETIMER_START_STK_SIZE,
+//                 NULL,
+//                 TASK_SOFTWARETIMER_START_PRIO,
+//                 &xHandletaskSoftwareTimerStart);
+    xTaskCreate( vTaskEventGroupStart,
+                 "vTaskEventGroupStart",
+                 TASK_EVENTGROUP_START_STK_SIZE,
                  NULL,
-                 TASK_SEMPHR_START_PRIO,
-                 &xHandletaskSemphrStart);
+                 TASK_EVENTGROUP_START_PRIO,
+                 &xHandletaskEventGroupStart);
 
     vTaskDelete(xHandleTaskStart);
 }

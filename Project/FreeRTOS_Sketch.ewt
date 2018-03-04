@@ -2320,6 +2320,9 @@
       <name>$PROJ_DIR$\..\Application\app_task_create.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\Application\app_task_eventgroup.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Application\app_task_main.c</name>
     </file>
     <file>
@@ -2327,6 +2330,12 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\Application\app_task_semphr.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_task_softwaretimer.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_task_statistics.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Application\FreeRTOSConfig.h</name>

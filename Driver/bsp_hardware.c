@@ -17,5 +17,4 @@ void bsp_hardware_init(void)
 //    bsp_drv_led_init();
 //    bsp_drv_motors_init();
 //    bsp_drv_timer9_init(5000, 16800-1);
-
 }

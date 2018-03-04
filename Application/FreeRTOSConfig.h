@@ -87,8 +87,11 @@
 #ifdef __ICCARM__
 	#include <stdint.h>
 	#include <stdio.h>      //防止增加断言printf函数后出现的警告
+	#include "bsp_drv_timer.h"
 	extern uint32_t SystemCoreClock;
 #endif
+
+
 
 #define configUSE_PREEMPTION			1
 #define configUSE_QUEUE_SETS			1                       //为1时启用队列
@@ -99,8 +102,8 @@
 #define configMAX_PRIORITIES			( 32 )
 #define configMINIMAL_STACK_SIZE		( ( unsigned short ) 130 )
 #define configTOTAL_HEAP_SIZE			( ( size_t ) ( 75 * 1024 ) )
-#define configMAX_TASK_NAME_LEN			( 20 )
-#define configUSE_TRACE_FACILITY		1
+#define configMAX_TASK_NAME_LEN			( 30 )
+
 #define configUSE_16_BIT_TICKS			0
 #define configIDLE_SHOULD_YIELD			1
 #define configUSE_MUTEXES				1
@@ -110,8 +113,12 @@
 #define configUSE_MALLOC_FAILED_HOOK	0
 #define configUSE_APPLICATION_TASK_TAG	0
 #define configUSE_COUNTING_SEMAPHORES	1
-#define configGENERATE_RUN_TIME_STATS	0
-#define configUSE_STATS_FORMATTING_FUNCTIONS	0
+
+#define configGENERATE_RUN_TIME_STATS	1           
+#define portCONFIGURE_TIMER_FOR_RUN_TIME_STATS()	ConfigureTimeForRunTimeStats()
+#define portGET_RUN_TIME_COUNTER_VALUE()			FreeRTOSRunTimeTicks
+#define configUSE_TRACE_FACILITY		1
+#define configUSE_STATS_FORMATTING_FUNCTIONS	1
 
 /* Co-routine definitions. */
 #define configUSE_CO_ROUTINES 		0
