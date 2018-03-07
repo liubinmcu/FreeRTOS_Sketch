@@ -1936,7 +1936,16 @@
       <name>$PROJ_DIR$\..\Application\app_task_eventgroup.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\..\Application\app_task_idle.c</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\Application\app_task_main.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_task_memmang.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\app_task_notification.c</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Application\app_task_queue.c</name>
@@ -1952,6 +1961,9 @@
     </file>
     <file>
       <name>$PROJ_DIR$\..\Application\FreeRTOSConfig.h</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\Application\global_include.h</name>
     </file>
     <file>
       <name>$PROJ_DIR$\..\Application\main.c</name>

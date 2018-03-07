@@ -12,6 +12,7 @@
 #include "semphr.h"
 #include "timers.h"
 #include "event_groups.h"
+#include "limits.h"
 
 //自定义任务
 #include "app_task_queue.h"
